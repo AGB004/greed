@@ -5,10 +5,12 @@ class Artifact(Actor):
 
     def __init__(self):
         super().__init__()
-        self._message = ""
+        self._points = 0
 
-    def set_message(self, message):
-        self._message = message
-
-    def get_message(self):
-        return self._message
+    def get_points(self):
+        if (self.get_text() == "*"):
+            self.points = 1
+        else:
+            self.points = -1
+    
+        return self.points
