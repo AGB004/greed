@@ -48,21 +48,22 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        banner_text = ""
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
 
-        # banner.set_text("")
+        # banner text location on screen
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
+        # get score as robot moves
         for artifact in artifacts:
             artifact.move_next(max_x, max_y)
             if robot.get_position().equals(artifact.get_position()):
                 self._total_score += artifact.get_points()
-                
+
+        # displays current score  
         banner.set_text("Score: " + str(self._total_score))    
         
     def _do_outputs(self, cast):
