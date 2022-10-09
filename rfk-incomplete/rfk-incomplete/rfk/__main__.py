@@ -21,10 +21,9 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Robot Finds Kitten"
-# DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
+CAPTION = "Greed - Find the Gems in the Rocks!"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 60
 
 
 def main():
@@ -42,7 +41,6 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    # y = int(MAX_Y / 2)
     position = Point(x, MAX_Y - CELL_SIZE)
 
     robot = Actor()
@@ -51,33 +49,29 @@ def main():
     robot.set_color(WHITE)
     robot.set_position(position)
     cast.add_actor("robots", robot)
-    
-    # create the artifacts
-    # with open(DATA_PATH) as file:
-    #     data = file.read()
-    #     messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(["*", "O"]) # Gem & Rock
-        # message = messages[n]
 
+        # where artifacts can randomly start
         x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS / 2)
+        y = random.randint(1, ROWS - 5)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
+        # color artifacts can randomly be
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
+        # create artifacts
         artifact = Artifact()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_velocity(Point(0, 1))
-        # artifact.set_message(message)
         cast.add_actor("artifacts", artifact)
     
     # start the game
