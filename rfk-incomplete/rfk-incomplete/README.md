@@ -1,5 +1,5 @@
-# Robot Finds Kitten
-Simon Carless once described robotfindskitten as "less a game and more a way of life ... It's fun to wander around until you find a kitten, at which point you feel happy and can start again". I don't think I could have said it better myself!
+# Greed
+You are a robot trying to catch as many Gems as you possibly can! You get 1 point for Gems and -1 point for Rocks, try to advoid the Rocks as much as possible...
 
 ## Getting Started
 ---
@@ -33,4 +33,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your name and email here
+* Alec Byington u654843389@byui.edu
